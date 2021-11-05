@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:BindingTest.ViewModels" x:DataType="viewmodels:ListViewViewModel"
+             x:Class="BindingTest.Views.CustomerView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text=""
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="btnAddCustomer"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <ListView x:Name="lstProduct" ItemsSource="{Binding LstCustomers}"
+            BackgroundColor="Transparent"
+            Grid.Row="0" Grid.Column="0" Margin="2" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                            <Grid x:Name="CustomerListGrid"
+                                  Margin="0,0,0,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="4"/>
+                                </Grid.RowDefinitions>
+                                <!-- Insert Future Image on Row Column 1 -->
+                                <Label Text="{Binding FirstName}"
+                                            TextColor="Black"
+                                            FontFamily="sans-serif"
+                                            FontAttributes="Italic"
+                                            BackgroundColor="AntiqueWhite"
+                                            Grid.Column="2"
+                                            Grid.ColumnSpan="2"
+                                            Grid.Row="1"
+                                            Grid.RowSpan="1"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center"/>
+
+                                <Label Text="{Binding LastName}"
+                                            TextColor="Black"
+                                            FontFamily="sans-serif"
+                                            FontAttributes="Italic"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center"
+                                            BackgroundColor="AntiqueWhite"
+                                            Grid.Column="2"
+                                            Grid.ColumnSpan="2"
+                                            Grid.Row="2"
+                                            Grid.RowSpan="1"/>
+                                <Label Text="7"
+                                        TextColor="Black"
+                                            FontFamily="sans-serif"
+                                            FontAttributes="Italic"
+                                            BackgroundColor="AntiqueWhite"
+                                            Grid.Column="2"
+                                            Grid.ColumnSpan="2"
+                                            Grid.Row="3"
+                                            Grid.RowSpan="1"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center"/>
+                                <Button Clicked="Button_Clicked" Text="test"  Grid.Column="2"
+                                            Grid.ColumnSpan="2"
+                                            Grid.Row="3"
+                                            Grid.RowSpan="1"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

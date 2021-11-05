@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:BindingTest.ViewModels" x:DataType="viewmodels:CreateCustomerViewModel"
+             x:Class="BindingTest.Views.CreateCustomerView">
+
+    <!-- Grid Setup for CreateCustomerView -->
+    <Grid x:Name="CreateClientGrid" Background="White" IsVisible="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Frame BackgroundColor="Blue" Grid.ColumnSpan="5" Grid.RowSpan="2">
+            <Label Text="Neuer Kunde Hinzufügen" TextColor="White" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontAttributes="Bold, Italic"/>
+        </Frame>
+
+        <Entry Text="{Binding customer.ID}" Margin="0" FontSize="1" IsVisible="false" HorizontalOptions="FillAndExpand"/>
+        <Entry x:Name="CustomerFirstNameEntry" Placeholder="Vorname" BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="2" Grid.RowSpan="1" Text="{Binding customer.FirstName}" />
+        <Entry x:Name="CustomerLastNameEntry" Placeholder="Nachname" BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Grid.RowSpan="1" Text="{Binding customer.LastName}"/>
+        <Entry x:Name="CustomerAgeEntry" Placeholder="Alter" BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="4" Grid.RowSpan="1" Text="{Binding customer.Age}" />
+        <Entry x:Name="CustomerInsuranceNumberEntry" Placeholder="Versichertennummer" BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="1" Text="{Binding customer.InsuranceNumber}" />
+        <Entry x:Name="CustomerStreetEntry" Placeholder="Straße und Hausnr." BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="6" Grid.RowSpan="1" Text="{Binding customer.Street}" />
+        <Entry x:Name="CustomerPLZEntry"  Placeholder="PLZ" BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="7" Grid.RowSpan="1" Text="{Binding customer.PLZ}" />
+        <Entry x:Name="CustomerCityEntry" Placeholder="Stadt" BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="8" Grid.RowSpan="1" Text="{Binding customer.City}" />
+        <Entry x:Name="CustomerTelEntry" Placeholder="Tel." BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="9" Grid.RowSpan="1" Text="{Binding customer.Tel}" />
+        <Entry x:Name="CustomerMobileEntry" Placeholder="Mobil" BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="10" Grid.RowSpan="1" Text="{Binding customer.Mobile}" />
+        <Entry x:Name="CustomerEmailEntry" Placeholder="Email Adresse" BackgroundColor="AntiqueWhite" Margin="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="11" Grid.RowSpan="1" Text="{Binding customer.Email}" />
+
+        <Button x:Name ="saveCustomer" Text="Speichern" BackgroundColor="Green" Command="{Binding btnSaveCustomer}" TextColor="White" Margin="3" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="12"/>
+
+        <Button x:Name ="clearEntries" Text="Felder Leeren" BackgroundColor="Red" Command="{Binding btnClearEntries}" TextColor="White" Margin="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="12"/>
+
+
+    </Grid>
+</ContentPage>
